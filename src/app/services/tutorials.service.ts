@@ -23,8 +23,8 @@ export class TutorialsService {
     return this.httpClient.delete(`${this.BASE_URL}/tutorials/${id}`);
   }
 
-  updateData(body: any) {
-    return this.httpClient.put(`${this.BASE_URL}/tutorials`, body);
+  updateData(id: string, body: any) {
+    return this.httpClient.put(`${this.BASE_URL}/tutorials/${id}`, body);
   }
 
   getDataById(id: string) {

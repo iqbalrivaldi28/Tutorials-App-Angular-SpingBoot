@@ -16,6 +16,7 @@ export class AppComponent {
   title!: string;
   description!: string;
   data!: any[];
+  isUpdate: boolean = false;
 
   constructor(private tutorialService: TutorialsService) {
     this.getAllData();
@@ -57,24 +58,34 @@ export class AppComponent {
     this.deleteData(id);
   }
 
-
+  getId(id: string) {
+    this.tutorialService.getDataById(id).subscribe({
+      next: (data) => {
+        (this.id = data),
+          (this.title = this.id.title),
+          (this.description = this.id.description),
+          (this.isUpdate = true);
+      },
+    });
+  }
 
   updateData() {
-    this.tutorialService
-      .updateData({
-        id: this.id.id,
-        title: this.title,
-        description: this.description,
-        published: this.id.published,
-      })
-      .subscribe({
-        next: () => {
-          this.getAllData(),
-            (this.title = ''),
-            (this.description = ''),
-            alert('Berhasil update Data');
-        },
-        error: (err) => console.log(err),
-      });
+    const dataToUpdate = {
+      id: this.id.id,
+      title: this.title,
+      description: this.description,
+      published: this.id.published,
+    };
+
+    this.tutorialService.updateData(this.id.id, dataToUpdate).subscribe({
+      next: () => {
+        this.getAllData();
+        this.title = '';
+        this.description = '';
+        this.isUpdate = false;
+        alert('Berhasil update Data');
+      },
+      error: (err) => console.log(err),
+    });
   }
 }
