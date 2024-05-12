@@ -20,7 +20,7 @@
               [(ngModel)]="description"
               name="description"
             />
-            <button class="btn btn-outline-primary w-100" (click)="addData()">
+            <button class="btn btn-outline-primary w-100" (click)="addClick()">
               Tambah Tutorial
             </button>
           </form>
@@ -34,8 +34,12 @@
         <div class="card-body">
           <p>{{ item.title }}</p>
           <p>{{ item.description }}</p>
-          <button class="btn btn-warning me-3">Edit Data</button>
-          <button class="btn btn-danger">Hapus Data</button>
+          <button class="btn btn-warning me-3" >
+            Edit Data
+          </button>
+          <button class="btn btn-danger" (click)="delClick(item.id)">
+            Hapus Data
+          </button>
         </div>
       </div>
     </div>

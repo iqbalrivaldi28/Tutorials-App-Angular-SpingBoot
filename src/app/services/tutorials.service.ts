@@ -18,4 +18,16 @@ export class TutorialsService {
   postData(body: any) {
     return this.httpClient.post(`${this.BASE_URL}/tutorials`, body);
   }
+
+  deleteData(id: string) {
+    return this.httpClient.delete(`${this.BASE_URL}/tutorials/${id}`);
+  }
+
+  updateData(body: any) {
+    return this.httpClient.put(`${this.BASE_URL}/tutorials`, body);
+  }
+
+  getDataById(id: string) {
+    return this.httpClient.get(`${this.BASE_URL}/tutorials/${id}`);
+  }
 }
