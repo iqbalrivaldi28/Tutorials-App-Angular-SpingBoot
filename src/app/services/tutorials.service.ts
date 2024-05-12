@@ -15,6 +15,7 @@ export class TutorialsService {
     return this.httpClient.get<any>(`${this.BASE_URL}/tutorials`);
   }
 
-
-  
+  postData(body: any) {
+    return this.httpClient.post(`${this.BASE_URL}/tutorials`, body);
+  }
 }

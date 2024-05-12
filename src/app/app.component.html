@@ -10,13 +10,17 @@
               type="text"
               class="form-control mb-3"
               placeholder="Masukan Title"
+              [(ngModel)]="title"
+              name="title"
             />
             <input
               type="text"
               class="form-control mb-4"
               placeholder="Masukan Deskripsi"
+              [(ngModel)]="description"
+              name="description"
             />
-            <button class="btn btn-outline-primary w-100">
+            <button class="btn btn-outline-primary w-100" (click)="addData()">
               Tambah Tutorial
             </button>
           </form>
