@@ -7,6 +7,9 @@ https://github.com/iqbalrivaldi28/API-Tutorials
 <br />
 I created an API using SpringBoot, please see here 👆
 
+<br />
+I use PostgreSQL for the database.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
